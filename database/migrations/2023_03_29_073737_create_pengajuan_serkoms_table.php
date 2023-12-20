@@ -16,16 +16,17 @@ return new class extends Migration
             $table->string('nama_sertifikasi');
             $table->date('tgl_pelaksanaan');
             $table->string('anggaran');
-            $table->string('TOR');
-            $table->string('status_pengajuanserkom');
+            $table->string('status_pengajuanserkom')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->unsignedBigInteger('penyelenggara_id');
-            $table->foreign('jenis_sertifikasi_id')->references('id')->on('jenis_sertifikasis')->onDelete('cascade');
-            $table->unsignedBigInteger('jenis_sertifikasi_id');
-            $table->foreign('penyelenggara_id')->references('id')->on('penyelenggaras')->onDelete('cascade');
             $table->unsignedBigInteger('skema_id');
-            $table->foreign('skema_id')->references('id')->on('skemas')->onDelete('cascade');
+            $table->unsignedBigInteger('periode_id');
+            $table->unsignedBigInteger('jenis_sertifikasi_id');
+            $table->foreign('penyelenggara_id')->references('id')->on('penyelenggaras')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('skema_id')->references('id')->on('skemas')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('periode_id')->references('id')->on('periodes')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('jenis_sertifikasi_id')->references('id')->on('jenis_sertifikasis')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

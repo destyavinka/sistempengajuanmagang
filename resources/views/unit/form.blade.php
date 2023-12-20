@@ -16,7 +16,7 @@
                             <label for="nama_unit">Nama Unit</label>
                             <input type="text" class="form-control" id="nama_unit" name="nama_unit" value="{{ isset($unit) ? $unit->nama_unit : '' }}">
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="nomor_telepon">Nomor Telepon</label>
                             <input type="number" class="form-control" id="nomor_telepon" name="nomor_telepon" value="{{ isset($unit) ? $unit->nomor_telepon : '' }}">
                         </div>
@@ -24,7 +24,7 @@
                             <label for="email">Email</label>
                             <input type="text" class="form-control" id="email" name="email" value="{{ isset($unit) ? $unit->email : '' }}">
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                         <a href="javascript:history.back()" class="btn btn-danger">Batal</a>

@@ -20,7 +20,9 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ asset('css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{asset('favicon.ico')}}" />
+  {{-- <link rel="shortcut icon" href="{{asset('favicon.ico')}}" /> --}}
+  <link rel="shortcut icon" href="{{asset('img/logo_sv.png')}}" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
 </head>
 
 <body>
@@ -71,12 +73,14 @@
   <script src="{{ asset('js/Chart.roundedBarCharts.js') }}"></script>
   <!-- End custom js for this page-->
   <script src="{{ asset('js/app.js') }}"></script>
+  <script src="{{ asset('js/password.js') }}"></script>
 
   <script>
     (function($) {
   'use strict';
   $(function() {
     $('#dataTable').DataTable({
+      searching: true,
       "aLengthMenu": [
         [5, 10, 15, -1],
         [5, 10, 15, "All"]
@@ -88,6 +92,7 @@
     });
     $('#dataTable').each(function() {
       var datatable = $(this);
+      
       // SEARCH - Add the placeholder for Search and Turn this into in-line form control
       var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
       search_input.attr('placeholder', 'Search');

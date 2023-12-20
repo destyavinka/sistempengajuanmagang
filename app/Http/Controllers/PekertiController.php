@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pekerti;
 use App\Http\Requests\StorePekertiRequest;
 use App\Http\Requests\UpdatePekertiRequest;
+use Illuminate\Http\Request;
 
 class PekertiController extends Controller
 {
@@ -15,7 +16,9 @@ class PekertiController extends Controller
      */
     public function index()
     {
-        //
+        $pekerti = Pekerti::get();
+
+        return view('pekerti.index', ['data' => $pekerti]);
     }
 
     /**
@@ -23,64 +26,58 @@ class PekertiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function tambah()
     {
-        //
+        return view('pekerti.form');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePekertiRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StorePekertiRequest $request)
+    public function simpan(Request $request)
     {
-        //
+        $file =  $request->file('sertifikat');
+        $nama_file = $file->getClientOriginalName();
+        $file->storeAs('pekerti', $nama_file, 'public');
+        $data = [
+            'tgl_pelaksanaan'  => $request->tgl_pelaksanaan,
+            'sertifikat'      => $nama_file,
+            'status_pekerti'   => $request->status_pekerti,
+            'user_id' =>  $request->user()->id
+        ];
+
+        // dd($data);
+
+        Pekerti::insert($data);
+
+        return redirect()->route('pekerti.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pekerti  $pekerti
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Pekerti $pekerti)
+    public function edit($id)
     {
-        //
+        $pekerti = Pekerti::findOrFail($id);
+
+
+        return view('pekerti.form', ['pekerti' => $pekerti]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pekerti  $pekerti
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Pekerti $pekerti)
+    public function update($id, Request $request)
     {
-        //
+        $file =  $request->file('sertifikat');
+        $nama_file = $file->getClientOriginalName();
+        $file->storeAs('pekerti', $nama_file, 'public');
+        $data = [
+            'tgl_pelaksanaan'  => $request->tgl_pelaksanaan,
+            'sertifikat'      => $nama_file,
+            'status_pekerti'   => $request->status_pekerti,
+        ];
+
+        Pekerti::find($id)->update($data);
+
+        return redirect()->route('pekerti.index');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePekertiRequest  $request
-     * @param  \App\Models\Pekerti  $pekerti
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePekertiRequest $request, Pekerti $pekerti)
+    public function hapus($id)
     {
-        //
-    }
+        Pekerti::find($id)->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pekerti  $pekerti
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Pekerti $pekerti)
-    {
-        //
+        return redirect()->route('pekerti.index');
     }
 }

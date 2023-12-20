@@ -9,27 +9,34 @@ class Magang extends Model
 {
     use HasFactory;
 
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    // protected $table = 'magangs';
+    // protected $guarded = ['id'];
 
-    // public function pengajuan_magang()
-    // {
-    //     return $this->belongsTo(Pengajuan_magang::class);
-    // }
-
-    // public function instansi()
-    // {
-    //     return $this->belongsTo(Instansi::class);
-    // }
-
-    // public function skema()
-    // {
-    //     return $this->belongsTo(Skema::class);
-    // }
-
-    protected $table = 'magangs';
     protected $guarded = ['id'];
+    public $timestamps = false;
+   
+    public function skema()
+    {
+        return $this->belongsTo(Skema::class);
+    }
 
+    public function instansi()
+    {
+        return $this->belongsTo(Instansi::class);
+    }
+
+    public function periode()
+    {
+        return $this->belongsTo(Periode::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    // public function periode()
+    // {
+    //     return $this->belongsTo(Periode::class);
+    // }
 }

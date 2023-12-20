@@ -14,6 +14,7 @@ class UnitController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
         $unit = Unit::get();
@@ -30,8 +31,8 @@ class UnitController extends Controller
     {
         $data = [
             'nama_unit'     => $request->nama_unit,
-            'nomor_telepon' => $request->nomor_telepon,
-            'email'         => $request->email,
+            // 'nomor_telepon' => $request->nomor_telepon,
+            // 'email'         => $request->email,
         ];
 
         Unit::create($data);
@@ -51,8 +52,8 @@ class UnitController extends Controller
 	{
 		$data = [
 			'nama_unit'     => $request->nama_unit,
-            'nomor_telepon' => $request->nomor_telepon,
-            'email'         => $request->email,
+            // 'nomor_telepon' => $request->nomor_telepon,
+            // 'email'         => $request->email,
 		];
 
 		Unit::find($id)->update($data);

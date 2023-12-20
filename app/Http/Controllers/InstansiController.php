@@ -5,24 +5,63 @@ namespace App\Http\Controllers;
 use App\Models\Instansi;
 use App\Http\Requests\StoreInstansiRequest;
 use App\Http\Requests\UpdateInstansiRequest;
+use Illuminate\Http\Request;
 
 class InstansiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $instansi = Instansi::get();
+
+        return view('instansi.index', ['data' => $instansi]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function tambah()
+    {
+        return view('instansi.form');
+    }
+
+    public function simpan(Request $request)
+    {
+        $data = [
+            'nama_instansi'          => $request->nama_instansi,
+            // 'user_id' =>  $request->user()->id   
+        ];
+
+        // dd($data);
+
+        Instansi::insert($data);
+
+        return redirect()->route('instansi');
+    }
+
+    public function edit($id)
+    {
+        $instansi = Instansi::findOrFail($id);
+
+
+        return view('instansi.form', ['instansi' => $instansi]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $data = [
+            'nama_instansi'          => $request->nama_instansi
+            
+        ];
+
+        Instansi::find($id)->update($data);
+
+        return redirect()->route('instansi');
+    }
+
+    public function hapus($id)
+    {
+        Instansi::find($id)->delete();
+
+        return redirect()->route('instansi');
+    }
+
     public function create()
     {
         //
@@ -56,22 +95,7 @@ class InstansiController extends Controller
      * @param  \App\Models\Instansi  $instansi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Instansi $instansi)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateInstansiRequest  $request
-     * @param  \App\Models\Instansi  $instansi
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateInstansiRequest $request, Instansi $instansi)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

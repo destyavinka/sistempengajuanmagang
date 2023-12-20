@@ -18,12 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-		'nama',
+        'nama',
         'nip',
-		'email',
-		'password',
-		'level',
-		'unit',
+        'email',
+        'password',
+        'level',
+        'unit',
+        'is_email_verified'
     ];
 
     /**
@@ -44,4 +45,34 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pengajuan_magang()
+    {
+        return $this->hasMany(Pengajuan_magang::class);
+    }
+
+    public function magang()
+    {
+        return $this->hasMany(Magang::class);
+    }
+
+    public function serkom()
+    {
+        return $this->hasMany(Serkom::class);
+    }
+
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
+
+    public function pekertian()
+    {
+        return $this->belongsTo(Pekertian::class);
+    }
+
+    // public function role()
+    // {
+    //     return $this->belongsTo(Role::class);
+    // }
 }

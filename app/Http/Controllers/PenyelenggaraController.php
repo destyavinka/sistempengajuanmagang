@@ -5,28 +5,63 @@ namespace App\Http\Controllers;
 use App\Models\Penyelenggara;
 use App\Http\Requests\StorePenyelenggaraRequest;
 use App\Http\Requests\UpdatePenyelenggaraRequest;
+use Illuminate\Http\Request;
 
 class PenyelenggaraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $penyelenggara = Penyelenggara::get();
+
+        return view('penyelenggara.index', ['data' => $penyelenggara]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function tambah()
     {
-        //
+        return view('penyelenggara.form');
     }
+
+    public function simpan(Request $request)
+    {
+        $data = [
+            'penyelenggara'          => $request->penyelenggara,
+            // 'user_id' =>  $request->user()->id   
+        ];
+
+        // dd($data);
+
+        Penyelenggara::insert($data);
+
+        return redirect()->route('penyelenggara');
+    }
+
+    public function edit($id)
+    {
+        $penyelenggara = Penyelenggara::findOrFail($id);
+
+
+        return view('penyelenggara.form', ['penyelenggara' => $penyelenggara]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $data = [
+            'penyelenggara'          => $request->penyelenggara
+            
+        ];
+
+        Penyelenggara::find($id)->update($data);
+
+        return redirect()->route('penyelenggara');
+    }
+
+    public function hapus($id)
+    {
+        Penyelenggara::find($id)->delete();
+
+        return redirect()->route('penyelenggara');
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -56,22 +91,7 @@ class PenyelenggaraController extends Controller
      * @param  \App\Models\Penyelenggara  $penyelenggara
      * @return \Illuminate\Http\Response
      */
-    public function edit(Penyelenggara $penyelenggara)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePenyelenggaraRequest  $request
-     * @param  \App\Models\Penyelenggara  $penyelenggara
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePenyelenggaraRequest $request, Penyelenggara $penyelenggara)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

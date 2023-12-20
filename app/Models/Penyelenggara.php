@@ -9,6 +9,9 @@ class Penyelenggara extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
+    protected $fillable = ['penyelenggara'];
+
     public function pengajuan_serkom()
     {
         return $this->hasMany(Pengajuan_serkom::class);

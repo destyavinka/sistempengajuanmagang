@@ -9,14 +9,13 @@ class Serkom extends Model
 {
     use HasFactory;
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // protected $table = 'serkoms';
+    protected $guarded = ['id'];
+    public $timestamps = false;
 
-    public function pengajuan_serkom()
+    public function skema()
     {
-        return $this->belongsTo(Pengajuan_serkom::class);
+        return $this->belongsTo(Skema::class);
     }
 
     public function penyelenggara()
@@ -24,13 +23,8 @@ class Serkom extends Model
         return $this->belongsTo(Penyelenggara::class);
     }
 
-    public function skema()
+    public function user()
     {
-        return $this->belongsTo(Skema::class);
-    }
-
-    public function jenis_sertifikasi()
-    {
-        return $this->belongsTo(Jenis_sertifikasi::class);
+        return $this->belongsTo(User::class);
     }
 }

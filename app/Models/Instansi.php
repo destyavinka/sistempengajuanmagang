@@ -9,6 +9,8 @@ class Instansi extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['nama_instansi'];
+
     public function pengajuan_magang()
     {
         return $this->hasMany(Pengajuan_magang::class);
@@ -18,4 +20,5 @@ class Instansi extends Model
     {
         return $this->hasMany(Magang::class);
     }
+
 }

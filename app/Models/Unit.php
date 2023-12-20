@@ -10,8 +10,14 @@ class Unit extends Model
     use HasFactory;
 
 	protected $table = 'units';
+	public $timestamps = false;
 
-	protected $fillable = ['nama_unit', 'nomor_telepon', 'email'];
+	protected $guarded = ['id'];
+	protected $fillable = ['nama_unit'];
 
-
+	//1 unit memiliki banyak user
+	public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

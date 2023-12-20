@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jenis_sertifikasi;
 use App\Http\Requests\StoreJenis_sertifikasiRequest;
 use App\Http\Requests\UpdateJenis_sertifikasiRequest;
+use Illuminate\Http\Request;
 
 class JenisSertifikasiController extends Controller
 {
@@ -15,14 +16,59 @@ class JenisSertifikasiController extends Controller
      */
     public function index()
     {
-        //
+        $jenis_sertifikasi = Jenis_sertifikasi::get();
+
+        return view('jenis_sertifikasi.index', ['data' => $jenis_sertifikasi]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function tambah()
+    {
+        return view('jenis_sertifikasi.form');
+    }
+
+    public function simpan(Request $request)
+    {
+        $data = [
+            'jenis_sertifikasi'          => $request->jenis_sertifikasi,
+            // 'user_id' =>  $request->user()->id   
+        ];
+
+        // dd($data);
+
+        Jenis_sertifikasi::insert($data);
+
+        return redirect()->route('jenis_sertifikasi');
+    }
+
+    public function edit($id)
+    {
+        $jenis_sertifikasi = Jenis_sertifikasi::findOrFail($id);
+
+
+        return view('jenis_sertifikasi.form', ['jenis_sertifikasi' => $jenis_sertifikasi]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $data = [
+            'jenis_sertifikasi'          => $request->jenis_sertifikasi
+            
+        ];
+
+        Jenis_sertifikasi::find($id)->update($data);
+
+        return redirect()->route('jenis_sertifikasi');
+    }
+
+    public function hapus($id)
+    {
+        Jenis_sertifikasi::find($id)->delete();
+
+        return redirect()->route('jenis_sertifikasi');
+    }
+
+
+    
     public function create()
     {
         //
@@ -56,23 +102,8 @@ class JenisSertifikasiController extends Controller
      * @param  \App\Models\Jenis_sertifikasi  $jenis_sertifikasi
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jenis_sertifikasi $jenis_sertifikasi)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateJenis_sertifikasiRequest  $request
-     * @param  \App\Models\Jenis_sertifikasi  $jenis_sertifikasi
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateJenis_sertifikasiRequest $request, Jenis_sertifikasi $jenis_sertifikasi)
-    {
-        //
-    }
-
+    
     /**
      * Remove the specified resource from storage.
      *

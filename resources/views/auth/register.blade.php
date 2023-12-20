@@ -25,16 +25,17 @@
 <body class="bg-gradient-primary">
 
   <div class="container">
-
+    <div class="col-xl-6 col-lg-6 col-md-6 mx-auto">  
     <div class="card o-hidden border-0 shadow-lg my-5">
       <div class="card-body p-0">
         <!-- Nested Row within Card Body -->
         <div class="row">
-          <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-          <div class="col-lg-7">
+          
+          <div class="col-lg-12">
             <div class="p-5">
               <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                <img src="img/logo_sv.png" alt="Logo 1" width="100">
+                <h1 class="h4 text-gray-900 mb-4">Buat Akun Si Maskot!</h1>
               </div>
               <form action="{{ route('register.simpan') }}" method="POST" class="user">
                 @csrf
@@ -53,11 +54,11 @@
 
                 <div class="form-group" >
                     <select id="level" onchange="cekItem()" name="level" class="form-control form-control-user @error('level')is-invalid @enderror"  id="exampleInputLevel">
-                      <option value="0">Role</option>
-                      <option value="4">Tenaga Pendidik / Tenaga Kependidikan</option>
-                      <option value="3">Kaprodi</option>
-                      <option value="2">Dekan, Wakil Dekan dan Jajaran</option>
-                      <option value="1">Admin</option>
+                      
+                      <option value="0">Pilih Role</option>
+                      @foreach ($roles as $row)
+                      <option value="{{ $row->role }}">{{ $row->role }}</option>
+                      @endforeach
                     </select>
                   @error('level')
                     <span class="invalid-feedback">{{ $message }}</span>
@@ -65,18 +66,19 @@
                 </div>
                 <div class="form-group" id="unit">
                     <select name="unit" class="form-control form-control-user @error('unit')is-invalid @enderror"  id="exampleInputUnit">
-                      <option value="umum" selected>Unit</option>
-                      <option value="Teknik Informatika">Teknik Informatika</option>
-                      <option value="Sistem Informasi">Sistem Informasi</option>
-                      <option value="DKV">DKV</option>
-                      <option value="Sistem Komputer">Sistem Komputer</option>
+                      <option value="umum" selected>Pilih Unit</option>
+                      @foreach ($units as $row)
+                      <option value="{{ $row->nama_unit }}">{{ $row->nama_unit }}</option>
+                      @endforeach
                     </select>
                   @error('unit')
                     <span class="invalid-feedback">{{ $message }}</span>
                   @enderror
                 </div>
+                
                 <div class="form-group">
-                  <input name="email" type="email" class="form-control form-control-user @error('email')is-invalid @enderror" id="exampleInputEmail" placeholder="Email Address">
+                  <input name="email" type="email" class="form-control form-control-user @error('email')is-invalid @enderror" id="exampleInputEmail" placeholder="Email Address"
+                  pattern=".+@staff\.uns\.ac\.id$" required>
                   @error('email')
                     <span class="invalid-feedback">{{ $message }}</span>
                   @enderror
@@ -114,7 +116,7 @@
     document.getElementById("unit").style.display="none";
     function cekItem(){
       d = document.getElementById("level").value;
-      if(d=="0" || d=="1"){
+      if(d=="0" || d=="Super Admin" || d=="Dekan"){
         document.getElementById("unit").style.display="none";
       }else{
         document.getElementById("unit").style.display="block";

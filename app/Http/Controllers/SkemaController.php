@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Skema;
 use App\Http\Requests\StoreSkemaRequest;
 use App\Http\Requests\UpdateSkemaRequest;
+use Illuminate\Http\Request;
 
 class SkemaController extends Controller
 {
@@ -15,7 +16,55 @@ class SkemaController extends Controller
      */
     public function index()
     {
-        //
+        $skema = Skema::get();
+
+        return view('skema.index', ['data' => $skema]);
+    }
+
+    public function tambah()
+    {
+        return view('skema.form');
+    }
+
+    public function simpan(Request $request)
+    {
+        $data = [
+            'nama_skema'          => $request->nama_skema,
+            // 'user_id' =>  $request->user()->id   
+        ];
+
+        // dd($data);
+
+        Skema::insert($data);
+
+        return redirect()->route('skema');
+    }
+
+    public function edit($id)
+    {
+        $skema = Skema::findOrFail($id);
+
+
+        return view('skema.form', ['skema' => $skema]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $data = [
+            'nama_skema'          => $request->nama_skema
+            
+        ];
+
+        Skema::find($id)->update($data);
+
+        return redirect()->route('skema');
+    }
+
+    public function hapus($id)
+    {
+        Skema::find($id)->delete();
+
+        return redirect()->route('skema');
     }
 
     /**
@@ -56,22 +105,7 @@ class SkemaController extends Controller
      * @param  \App\Models\Skema  $skema
      * @return \Illuminate\Http\Response
      */
-    public function edit(Skema $skema)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateSkemaRequest  $request
-     * @param  \App\Models\Skema  $skema
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateSkemaRequest $request, Skema $skema)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

@@ -13,23 +13,17 @@ return new class extends Migration
     {
         Schema::create('serkoms', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_sertifikasi')->nullable();
+            $table->string('nama_sertifikasi');
             $table->date('tgl_penerbitan');
-            $table->date('masa_berlaku');
+            $table->date('masa_berlaku')->nullable();
+            $table->integer('status_seumur_hidup')->default(0);
             $table->string('sertifikat');
-            $table->string('status_serkom');
-            $table->timestamps();
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->unsignedBigInteger('pengajuan_serkom_id');
-            $table->foreign('pengajuan_serkom_id')->references('id')->on('pengajuan_serkoms')->onDelete('cascade');
-            $table->unsignedBigInteger('jenis_sertifikasi_id');
-            $table->foreign('jenis_sertifikasi_id')->references('id')->on('jenis_sertifikasis')->onDelete('cascade');
+            $table->string('status_serkom')->nullable();
+            $table->foreignId('user_id');
             $table->unsignedBigInteger('penyelenggara_id');
-            $table->foreign('penyelenggara_id')->references('id')->on('penyelenggaras')->onDelete('cascade');
             $table->unsignedBigInteger('skema_id');
-            $table->foreign('skema_id')->references('id')->on('skemas')->onDelete('cascade');
-
+            $table->foreign('penyelenggara_id')->references('id')->on('penyelenggaras')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreign('skema_id')->references('id')->on('skemas')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

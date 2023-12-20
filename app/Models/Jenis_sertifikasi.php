@@ -9,6 +9,8 @@ class Jenis_sertifikasi extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['jenis_sertifiaksi'];
+
     public function pengajuan_serkom()
     {
         return $this->hasMany(Pengajuan_serkom::class);

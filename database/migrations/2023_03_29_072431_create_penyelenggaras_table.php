@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('penyelenggaras', function (Blueprint $table) {
             $table->id();
-            $table->string('penyelenggara_sertifikasi');
+            $table->string('penyelenggara');
             $table->timestamps();
         });
     }

@@ -9,20 +9,23 @@ class Pengajuan_serkom extends Model
 {
     use HasFactory;
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $guarded = ['id'];
+    public $timestamps = false;
 
-    public function serkom()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 
-    public function jenis_sertifikasi()
-    {
-        return $this->belongsTo(Jenis_sertifikasi::class);
-    }
+    // public function serkom()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
+
+    // public function jenis_sertifikasi()
+    // {
+    //     return $this->belongsTo(Jenis_sertifikasi::class);
+    // }
 
     public function penyelenggara()
     {
@@ -33,4 +36,20 @@ class Pengajuan_serkom extends Model
     {
         return $this->belongsTo(Skema::class);
     }
+
+    public function periode()
+    {
+        return $this->belongsTo(Periode::class);
+    }
+
+    public function jenis_sertifikasi()
+    {
+        return $this->belongsTo(Jenis_sertifikasi::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

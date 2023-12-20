@@ -8,9 +8,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
-    {{-- <img href="{{ asset('seo_master') }}/img/logo_sv.png" rel="icon"> --}}
-    {{-- <img class="img-fluid" src="{{ asset('seo_master') }}/img/logo_sv.png" alt=""> --}}
+
     <link href="{{ asset('seo_master') }}/img/logo_sv.png" rel="icon">
 
     <!-- Google Web Fonts -->
@@ -35,6 +33,7 @@
 </head>
 
 <body>
+    
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -46,12 +45,14 @@
 
 
         <!-- Navbar & Hero Start -->
-        <div class="container-xxl position-relative p-0">
+        {{-- <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="" class="navbar-brand p-0">
-                    {{-- <h1 class="m-0"><i class="fa fa-search me-2"></i>SEO<span class="fs-5">Master</span></h1> --}}
-                    <img src="img/logo_sv.png" alt="Logo"> 
-                </a>
+                    <img src="img/logo_sv.png" alt="Logo">
+                    <img src="/img/simaskot.png" alt="Logo Si Maskot" style="width: 160px; height: auto; margin-top: 5px;">
+                  </a>
+                  
+                  
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
                 </button>
@@ -79,18 +80,63 @@
                     <div class="row g-5 py-5">
                         <div class="col-lg-12 text-center text-lg-center">
                             <h1 class="text-white mb-4 animated zoomIn">Selamat Datang di Layanan Magang, Sertifikasi Kompetensi, dan Pekerti<br> Sekolah Vokasi UNS</h1>
-                            <br>{{-- <p class="text-white pb-3 animated zoomIn">Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed magna dolor sea diam. Sit diam sit justo amet ipsum vero ipsum clita lorem</p> --}}
-                            {{-- <a href="" class="btn btn-light py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Free Quote</a>
-                            <a href="" class="btn btn-outline-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Contact Us</a> --}}
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+        <!-- Navbar & Hero End -->
+
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+                <a href="#" class="navbar-brand p-0">
+                    <img src="img/logo_sv.png" alt="Logo">
+                    <img src="/img/simaskot.png" alt="Logo Si Maskot" style="width: 160px; height: auto; margin-top: 5px;">
+                </a>
+        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav ms-auto py-0">
+                        <li class="nav-item">
+                            <a href="#beranda" class="nav-link active">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#tentang" class="nav-link">Tentang</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Layanan</a>
+                            <div class="dropdown-menu">
+                                <a href="team.html" class="dropdown-item">Magang</a>
+                                <a href="testimonial.html" class="dropdown-item">Sertifikasi Kompetensi</a>
+                                <a href="404.html" class="dropdown-item">Pekerti</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#panduan" class="nav-link">Panduan</a>
+                        </li>
+                    </ul>
+                    <a href="#search" class="btn text-secondary ms-3"><i class="fa fa-search"></i></a>
+                    <a href="login" class="btn btn-secondary text-light rounded-pill py-2 px-4 ms-3">Login</a>
+                </div>
+            </nav>
+        
+            <div class="container-xxl py-5 bg-primary hero-header mb-5" id="beranda">
+                <div class="container my-5 py-5 px-lg-5">
+                    <div class="row g-5 py-5">
+                        <div class="col-lg-12 text-center text-lg-center">
+                            <h1 class="text-white mb-4 animated zoomIn" style="line-height: 1.8;">
+                                Selamat Datang di Layanan Magang, Sertifikasi Kompetensi, dan Pekerti<br>
+                                Sekolah Vokasi UNS
+                            </h1>
+                            
                         </div>
-                        {{-- <div class="col-lg-6 text-center text-lg-start">
-                            <img class="img-fluid" src="{{ asset('seo_master') }}/img/hero.png" alt="">
-                        </div> --}}
+                        
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Navbar & Hero End -->
+        
 
 
         <!-- Full Screen Search Start -->
@@ -145,42 +191,24 @@
                             <a class="btn btn-outline-primary btn-square" href=""><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 position-relative">
                         <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="{{ asset('seo_master') }}/img/about.jpg">
+                        
                     </div>
+                    
                 </div>
             </div>
         </div>
         <!-- About End -->
 
 
-        <!-- Newsletter Start -->
-        <div class="container-xxl bg-primary newsletter my-5 wow fadeInUp" data-wow-delay="0.1s" >
-            <div class="container px-lg-5">
-                <div class="row align-items-center" style="height: 250px;">
-                    <div class="col-12 col-md-6" >
-                        <h3 class="text-white">Cek Masa Berlaku</h3>
-                        <small class="text-white">Pendidik maupun tenaga kependidikan bisa melakukan pelacakan masa berlaku sertifikat dengan menginputkan NIP</small>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Cek Masa Berlaku" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="bi bi-search text-primary fs-4"></i></button>
-                        </div>
-                    </div>
-                    <div class="col-md-6 text-center mb-n5 d-none d-md-block">
-                        <img class="img-fluid mt-5" style="height: 250px;" src="{{ asset('seo_master') }}/img/newsletter.png">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Newsletter End -->
-
 
         <!-- Service Start -->
         <div class="container-xxl py-5">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4">Pilihan Layanan</h6>
-                    <h2 class="mt-2">Civitas Sekolah Vokasi</h2>
+                    <h6 class="position-relative d-inline text-primary ps-4">Alur</h6>
+                    <h2 class="mt-2">Panduan Layanan Yang Dipilih</h2>
                 </div>
                 <div class="row g-4">
                     <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s">
@@ -190,7 +218,7 @@
                                 <i class="fa fa-id-card fa-2x" aria-hidden="true"></i>
                             </div>
                             <h5 class="mb-3">Magang</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p>Berisi alur panduan pengajuan magang dan pendataan riwayat magang.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
@@ -200,7 +228,7 @@
                                 <i class="fa fa-certificate fa-2x"></i>
                             </div>
                             <h5 class="mb-3">Sertifikasi Kompetensi</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p>Berisi alur panduan pengajuan sertifikasi kompetensi dan pendataan riwayat sertifikasi kompetensi.</p>
                             <a class="btn px-3 mt-auto mx-auto" href="">Read More</a>
                         </div>
                     </div>
@@ -210,7 +238,7 @@
                                 <i class="fa fa-database fa-2x"></i>
                             </div>
                             <h5 class="mb-3">Pekerti</h5>
-                            <p>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p>Berisi alur panduan pendataan Pekerti</p>
                             <a class="btn px-3 mt-auto mx-auto"id="panduan" href="">Read More </a>
                         </div>
                 </div>
@@ -218,65 +246,201 @@
         </div>
         <!-- Service End -->
 
-
-        <!-- Portfolio Start -->
-        <div class="container-xxl py-5" >
+        <!-- Service Start -->
+        <div class="container-xxl py-5 px-4">
             <div class="container px-lg-5">
                 <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="position-relative d-inline text-primary ps-4"><br>Panduan Sistem</h6>
-                    <h2 class="mt-2">Layanan Yang Dipilih</h2>
+                    <br>
+                    <h4 class="position-relative d-inline text-primary ps-4">Artikel</h4>
+                    {{-- <h2 class="mt-2">Penawaran Magang Terbaru</h2> --}}
                 </div>
-                {{-- <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="col-12 text-center">
-                        <ul class="list-inline mb-5" id="portfolio-flters">
-                            <li class="btn px-3 pe-4 active" data-filter="*">All</li>
-                            <li class="btn px-3 pe-4" data-filter=".first">Design</li>
-                            <li class="btn px-3 pe-4" data-filter=".second">Development</li>
-                        </ul>
-                    </div>
-                </div> --}}
-                <div class="row g-4 portfolio-container">
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.1s">
-                        <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="{{ asset('seo_master') }}/img/portfolio-1.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <a class="btn btn-light" href="{{ asset('seo_master') }}/img/portfolio-1.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
-                                <div class="mt-auto">
-                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Web Design</small>
-                                    <a class="h5 d-block text-white mt-1 mb-0" href="">Project Name</a>
-                                </div>
-                            </div>
+                <div class="row g-4">
+                    <!-- Your existing code for the internship cards -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="py-2">
+            <div class="mb-4">
+                <h3 class="fw-bold">Penawaran Magang Terbaru</h3>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-md-4 g-2 mb-4">
+                <div class="col px-2">
+                    <div class="card h-100">
+                        <img src="https://cdnb.uns.ac.id/lsp/public/penawaran_sertifikasi/poster/2023/6/7/poster_1686126082.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title h6 mb-0">KUALIFIKASI 6 BIDANG PEMBIAYAAN SUB BIDANG PENGELOLAAN</h5>
+                            <p class="card-text small">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>Jun 1, 2023</span>
+                                <span> - Jul 2, 2023</span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-end">
+                            <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi/329" class="btn-link" style="text-decoration: none">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item second wow zoomIn" data-wow-delay="0.3s">
-                        <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="{{ asset('seo_master') }}/img/portfolio-2.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <a class="btn btn-light" href="{{ asset('seo_master') }}/img/portfolio-2.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
-                                <div class="mt-auto">
-                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Web Design</small>
-                                    <a class="h5 d-block text-white mt-1 mb-0" href="">Project Name</a>
-                                </div>
-                            </div>
+                </div>
+                <div class="col px-2">
+                    <div class="card h-100">
+                        <img src="https://cdnb.uns.ac.id/lsp/public/penawaran_sertifikasi/poster/2023/6/7/poster_1686125592.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title h6 mb-0">PUBLIC RELATIONS OFFICER</h5>
+                            <p class="card-text small">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>Jun 1, 2023</span>
+                                <span> - Jul 2, 2023</span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-end">
+                            <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi/319" class="btn-link" style="text-decoration: none">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 portfolio-item first wow zoomIn" data-wow-delay="0.6s">
-                        <div class="position-relative rounded overflow-hidden">
-                            <img class="img-fluid w-100" src="{{ asset('seo_master') }}/img/portfolio-3.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <a class="btn btn-light" href="{{ asset('seo_master') }}/img/portfolio-3.jpg" data-lightbox="portfolio"><i class="fa fa-plus fa-2x text-primary"></i></a>
-                                <div class="mt-auto">
-                                    <small class="text-white"><i class="fa fa-folder me-2"></i>Web Design</small>
-                                    <a class="h5 d-block text-white mt-1 mb-0" href="">Project Name</a>
-                                </div>
-                            </div>
+                </div>
+                <div class="col px-2">
+                    <div class="card h-100">
+                        <img src="https://cdnb.uns.ac.id/lsp/public/penawaran_sertifikasi/poster/2023/6/7/poster_1686125632.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title h6 mb-0">PEKERAMIK</h5>
+                            <p class="card-text small">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>Jun 1, 2023</span>
+                                <span> - Jul 2, 2023</span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-end">
+                            <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi/321" class="btn-link" style="text-decoration: none">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col px-2">
+                    <div class="card h-100">
+                        <img src="https://cdnb.uns.ac.id/lsp/public/penawaran_sertifikasi/poster/2023/6/7/poster_1686125723.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title h6 mb-0">DESAINER MOTIF BATIK</h5>
+                            <p class="card-text small">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>Jun 1, 2023</span>
+                                <span> - Jul 2, 2023</span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-end">
+                            <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi/322" class="btn-link" style="text-decoration: none">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="d-flex justify-content-end">
+                <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi" class="h5 text-decoration-none">
+                    <span>Lihat Lainnya</span>
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
         </div>
-        <!-- Portfolio End -->
 
+        <div class="py-2">
+            <div class="mb-4">
+                <h3 class="fw-bold">Penawaran Sertifikasi Terbaru</h3>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-md-4 g-2 mb-4">
+                <div class="col px-2">
+                    <div class="card h-100">
+                        <img src="https://cdnb.uns.ac.id/lsp/public/penawaran_sertifikasi/poster/2023/6/7/poster_1686126082.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title h6 mb-0">KUALIFIKASI 6 BIDANG PEMBIAYAAN SUB BIDANG PENGELOLAAN</h5>
+                            <p class="card-text small">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>Jun 1, 2023</span>
+                                <span> - Jul 2, 2023</span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-end">
+                            <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi/329" class="btn-link" style="text-decoration: none">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col px-2">
+                    <div class="card h-100">
+                        <img src="https://cdnb.uns.ac.id/lsp/public/penawaran_sertifikasi/poster/2023/6/7/poster_1686125592.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title h6 mb-0">PUBLIC RELATIONS OFFICER</h5>
+                            <p class="card-text small">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>Jun 1, 2023</span>
+                                <span> - Jul 2, 2023</span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-end">
+                            <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi/319" class="btn-link" style="text-decoration: none">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col px-2">
+                    <div class="card h-100">
+                        <img src="https://cdnb.uns.ac.id/lsp/public/penawaran_sertifikasi/poster/2023/6/7/poster_1686125632.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title h6 mb-0">PEKERAMIK</h5>
+                            <p class="card-text small">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>Jun 1, 2023</span>
+                                <span> - Jul 2, 2023</span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-end">
+                            <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi/321" class="btn-link" style="text-decoration: none">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col px-2">
+                    <div class="card h-100">
+                        <img src="https://cdnb.uns.ac.id/lsp/public/penawaran_sertifikasi/poster/2023/6/7/poster_1686125723.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title h6 mb-0">DESAINER MOTIF BATIK</h5>
+                            <p class="card-text small">
+                                <i class="far fa-calendar-alt me-2"></i>
+                                <span>Jun 1, 2023</span>
+                                <span> - Jul 2, 2023</span>
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white d-flex justify-content-end">
+                            <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi/322" class="btn-link" style="text-decoration: none">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Lihat</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="https://lsp.integrasi.uns.ac.id/penawaran_sertifikasi" class="h5 text-decoration-none">
+                    <span>Lihat Lainnya</span>
+                    <i class="fas fa-arrow-right ms-2"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Service End -->
 
         <!-- Testimonial Start -->
         {{-- <div class="container-xxl bg-primary testimonial py-5 my-5 wow fadeInUp" data-wow-delay="0.1s">
@@ -398,7 +562,7 @@
         
 
         <!-- Footer Start -->
-        <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+        {{-- <div class="container-fluid bg-primary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5 px-lg-5">
                 <div class="row g-5">
                     <div class="col-md-6 col-lg-3">
@@ -476,7 +640,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Footer End -->
 
 
